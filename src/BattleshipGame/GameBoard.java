@@ -11,6 +11,8 @@ public class GameBoard {
 		this.numRows = numRows;
 		this.numColumns = numColumns;
 		this.ships = new ArrayList<Ship>();
+	}
+	public void handleMove(GameCell selectedCell){
 		
 	}
 	

@@ -1,8 +1,8 @@
 package BattleshipGame;
 
 public class BattleshipGame {
-	private GameBoard computerBoard;
-	private GameBoard humanBoard;
+	public GameBoard computerBoard;
+	public GameBoard humanBoard;
 	
 
 	public BattleshipGame() {
@@ -13,13 +13,13 @@ public class BattleshipGame {
 		
 		return -1;
 	}
-	public String convertToBinary(int decNumb){
+	public String convertToBinary(int decNumb, int numbBits){
 		
 		return " ";
 	}
-	public void handleMove(GameCell selectedCell){
+	public boolean handleMove(GameCell selectedCell){
 		
-		
+		return false;
 	}
 	public void playGame(){
 		

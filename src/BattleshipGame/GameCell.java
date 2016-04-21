@@ -4,7 +4,7 @@ public class GameCell {
 	private int row, column;
 	private CellState cellState;
 	private boolean containsShip;
-	public GameCell(int row, int column, boolean containsShip) {
+	public GameCell(int row, int column) {
 		super();
 		this.row = row;
 		this.column = column;

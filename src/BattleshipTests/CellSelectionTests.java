@@ -13,7 +13,7 @@ public class CellSelectionTests {
 	@Test
 	public void test() {
 		BattleshipGame bg = new BattleshipGame();
-		GameCell gc = new GameCell(0, 0, false);
+		GameCell gc = new GameCell(0, 0);
 		//The handle move method in the battleship Game will return a boolean depending on whether or not the move was successful.
 		//In this test, the game cell should return false. 
 		assertTrue(bg.handleMove(gc));

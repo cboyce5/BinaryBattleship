@@ -12,8 +12,13 @@ public class GameBoard {
 		this.numColumns = numColumns;
 		this.ships = new ArrayList<Ship>();
 	}
-	public void handleMove(GameCell selectedCell){
-		
+	public void initialize(){
+		board = new GameCell[numRows][numColumns];
+		for(int i = 0; i < numRows; i++){
+			for(int j = 0; j < numColumns; j++){
+				board[numRows][numColumns] = new GameCell(i, j);
+			}
+		}
 	}
 	
 }

@@ -20,5 +20,7 @@ public class GameBoard {
 			}
 		}
 	}
-	
+	public void setShipsComputer(){
+		
+	}
 }

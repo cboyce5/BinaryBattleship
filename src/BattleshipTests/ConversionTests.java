@@ -13,15 +13,15 @@ public class ConversionTests {
 		BattleshipGame bs = new BattleshipGame();
 		
 		//Tests for converting from base ten decimal to binary.
-		assertEquals("0000", bs.convertToBinary(0));
-		assertEquals("0001", bs.convertToBinary(1));
-		assertEquals("0010", bs.convertToBinary(2));
-		assertEquals("0011", bs.convertToBinary(3));
-		assertEquals("0100", bs.convertToBinary(4));
-		assertEquals("0101", bs.convertToBinary(5));
-		assertEquals("0110", bs.convertToBinary(6));
-		assertEquals("0111", bs.convertToBinary(7));
-		assertEquals("1000", bs.convertToBinary(8));
+		assertEquals("0000", bs.convertToBinary(0, 4));
+		assertEquals("0001", bs.convertToBinary(1, 4));
+		assertEquals("0010", bs.convertToBinary(2, 4));
+		assertEquals("0011", bs.convertToBinary(3, 4));
+		assertEquals("0100", bs.convertToBinary(4, 4));
+		assertEquals("0101", bs.convertToBinary(5, 4));
+		assertEquals("0110", bs.convertToBinary(6, 4));
+		assertEquals("0111", bs.convertToBinary(7, 4));
+		assertEquals("1000", bs.convertToBinary(8, 4));
 		
 		
 		//Tests for converting from binary back to base 10 decimal.

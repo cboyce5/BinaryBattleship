@@ -29,28 +29,28 @@ public class ThreeBitConversionTests {
 		
 		//try {
 			binaryString = "000";
-			assertEquals(0, ThreeBitConverter.convertFromBinary(binaryString));
+			assertEquals(0, ThreeBitConverter.convertToDecimal(binaryString));
 			
 			binaryString = "001";
-			assertEquals(1, ThreeBitConverter.convertFromBinary(binaryString));
+			assertEquals(1, ThreeBitConverter.convertToDecimal(binaryString));
 			
 			binaryString = "010";
-			assertEquals(2, ThreeBitConverter.convertFromBinary(binaryString));
+			assertEquals(2, ThreeBitConverter.convertToDecimal(binaryString));
 			
 			binaryString = "011";
-			assertEquals(3, ThreeBitConverter.convertFromBinary(binaryString));
+			assertEquals(3, ThreeBitConverter.convertToDecimal(binaryString));
 			
 			binaryString = "100";
-			assertEquals(4, ThreeBitConverter.convertFromBinary(binaryString));
+			assertEquals(4, ThreeBitConverter.convertToDecimal(binaryString));
 			
 			binaryString = "101";
-			assertEquals(5, ThreeBitConverter.convertFromBinary(binaryString));
+			assertEquals(5, ThreeBitConverter.convertToDecimal(binaryString));
 			
 			binaryString = "110";
-			assertEquals(6, ThreeBitConverter.convertFromBinary(binaryString));
+			assertEquals(6, ThreeBitConverter.convertToDecimal(binaryString));
 			
 			binaryString = "111";
-			assertEquals(7, ThreeBitConverter.convertFromBinary(binaryString));
+			assertEquals(7, ThreeBitConverter.convertToDecimal(binaryString));
 		//}
 		//catch(ThreeBitBadBitStringLengthException bBSLE) {
 		//	System.out.println("convertValidBinaryStrings() threw a ThreeBitBadBitStringLengthException");
@@ -66,28 +66,28 @@ public class ThreeBitConversionTests {
 		
 		//try {
 			decimalNumber = 0;
-			assertEquals("000", ThreeBitConverter.convertFromDecimal(decimalNumber));
+			assertEquals("000", ThreeBitConverter.convertToBinary(decimalNumber));
 			
 			decimalNumber = 1;
-			assertEquals("001", ThreeBitConverter.convertFromDecimal(decimalNumber));
+			assertEquals("001", ThreeBitConverter.convertToBinary(decimalNumber));
 			
 			decimalNumber = 2;
-			assertEquals("010", ThreeBitConverter.convertFromDecimal(decimalNumber));
+			assertEquals("010", ThreeBitConverter.convertToBinary(decimalNumber));
 			
 			decimalNumber = 3;
-			assertEquals("011", ThreeBitConverter.convertFromDecimal(decimalNumber));
+			assertEquals("011", ThreeBitConverter.convertToBinary(decimalNumber));
 			
 			decimalNumber = 4;
-			assertEquals("100", ThreeBitConverter.convertFromDecimal(decimalNumber));
+			assertEquals("100", ThreeBitConverter.convertToBinary(decimalNumber));
 			
 			decimalNumber = 5;
-			assertEquals("101", ThreeBitConverter.convertFromDecimal(decimalNumber));
+			assertEquals("101", ThreeBitConverter.convertToBinary(decimalNumber));
 			
 			decimalNumber = 6;
-			assertEquals("110", ThreeBitConverter.convertFromDecimal(decimalNumber));
+			assertEquals("110", ThreeBitConverter.convertToBinary(decimalNumber));
 			
 			decimalNumber = 7;
-			assertEquals("111", ThreeBitConverter.convertFromDecimal(decimalNumber));
+			assertEquals("111", ThreeBitConverter.convertToBinary(decimalNumber));
 		//}
 		//catch(ThreeBitInvalidDecimalException iDE) {
 		//	System.out.println("convertValidDecimalNumbers() threw an ThreeBitInvalidDecimalException");
@@ -104,7 +104,7 @@ public class ThreeBitConversionTests {
 		
 		binaryString = "100110";
 		//try {
-			dummyDecimal = ThreeBitConverter.convertFromBinary(binaryString);
+			dummyDecimal = ThreeBitConverter.convertToDecimal(binaryString);
 		//}
 		//catch(ThreeBitBadBitException bBE) {
 		//	System.out.println("ThreeBitBadBitException occured for binaryString = " + binaryString);
@@ -117,7 +117,7 @@ public class ThreeBitConversionTests {
 		
 		binaryString = "0204";
 		//try {
-			dummyDecimal = ThreeBitConverter.convertFromBinary(binaryString);
+			dummyDecimal = ThreeBitConverter.convertToDecimal(binaryString);
 		//}
 		//catch(ThreeBitBadBitException bBE) {
 		//	System.out.println("ThreeBitBadBitException occured for binaryString = " + binaryString);
@@ -130,7 +130,7 @@ public class ThreeBitConversionTests {
 		
 		binaryString = "510";
 		//try {
-			dummyDecimal = ThreeBitConverter.convertFromBinary(binaryString);
+			dummyDecimal = ThreeBitConverter.convertToDecimal(binaryString);
 		//}
 		//catch (ThreeBitBadBitStringLengthException bBSLE) {
 		//	System.out.println("testBadBitException_FirstBit() threw a ThreeBitBadBitStringLengthException");
@@ -143,7 +143,7 @@ public class ThreeBitConversionTests {
 		
 		binaryString = "090";
 		//try {
-			dummyDecimal = ThreeBitConverter.convertFromBinary(binaryString);
+			dummyDecimal = ThreeBitConverter.convertToDecimal(binaryString);
 		//}
 		//catch (ThreeBitBadBitStringLengthException bBSLE) {
 		//	System.out.println("testBadBitException_SecondBit() threw a ThreeBitBadBitStringLengthException");
@@ -156,7 +156,7 @@ public class ThreeBitConversionTests {
 		
 		binaryString = "116";
 		//try {
-			dummyDecimal = ThreeBitConverter.convertFromBinary(binaryString);
+			dummyDecimal = ThreeBitConverter.convertToDecimal(binaryString);
 		//}
 		//catch (ThreeBitBadBitStringLengthException bBSLE) {
 		//	System.out.println("testBadBitException_ThirdBit() threw a ThreeBitBadBitStringLengthException");
@@ -168,7 +168,7 @@ public class ThreeBitConversionTests {
 	public void testInvalidDecimalException_LessThanZero() throws ThreeBitInvalidDecimalException {
 		
 		decimalNumber = -1;
-		dummyString = ThreeBitConverter.convertFromDecimal(decimalNumber);
+		dummyString = ThreeBitConverter.convertToBinary(decimalNumber);
 	}
 	
 	// Test InvalidDecimalException (decimalNumber > 7)
@@ -176,6 +176,6 @@ public class ThreeBitConversionTests {
 	public void testInvalidDecimalException_GreaterThanSeven() throws ThreeBitInvalidDecimalException {
 		
 		decimalNumber = 8;
-		dummyString = ThreeBitConverter.convertFromDecimal(decimalNumber);
+		dummyString = ThreeBitConverter.convertToBinary(decimalNumber);
 	}
 }

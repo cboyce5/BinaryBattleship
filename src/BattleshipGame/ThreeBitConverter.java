@@ -6,7 +6,7 @@ public class ThreeBitConverter {
 		
 	}
 	
-	public static int convertFromBinary(String binaryString) /* throws ThreeBitBadBitStringLengthException, ThreeBitBadBitException */{
+	public static int convertToDecimal(String binaryString) /* throws ThreeBitBadBitStringLengthException, ThreeBitBadBitException */{
 		
 		// Check length of the binary string
 		if (binaryString.length() != 3) {/* throw new ThreeBitBadBitStringLengthException(binaryString.length()); */}
@@ -27,7 +27,7 @@ public class ThreeBitConverter {
 		return 0; // should return sum
 	}
 	
-	public static String convertFromDecimal(int decimal) /*throws ThreeBitInvalidDecimalException */ {
+	public static String convertToBinary(int decimal) /*throws ThreeBitInvalidDecimalException */ {
 		
 		// Check if the decimal is valid for 3-bit binary strings
 		if (decimal < 0 || decimal > 7) {/* throw new ThreeBitInvalidDecimalException(); */}

@@ -27,7 +27,7 @@ public class ThreeBitConversionTests {
 	@Test
 	public void convertValidBiinaryStrings() {
 		
-		try {
+		//try {
 			binaryString = "000";
 			assertEquals(0, ThreeBitConverter.convertFromBinary(binaryString));
 			
@@ -51,20 +51,20 @@ public class ThreeBitConversionTests {
 			
 			binaryString = "111";
 			assertEquals(7, ThreeBitConverter.convertFromBinary(binaryString));
-		}
-		catch(ThreeBitBadBitStringLengthException bBSLE) {
-			System.out.println("convertValidBinaryStrings() threw a ThreeBitBadBitStringLengthException");
-		}
-		catch (ThreeBitBadBitException bBE) {
-			System.out.println("convertValidBinaryStrings() threw a ThreeBitBadBitException");
-		}
+		//}
+		//catch(ThreeBitBadBitStringLengthException bBSLE) {
+		//	System.out.println("convertValidBinaryStrings() threw a ThreeBitBadBitStringLengthException");
+		//}
+		//catch (ThreeBitBadBitException bBE) {
+		//	System.out.println("convertValidBinaryStrings() threw a ThreeBitBadBitException");
+		//}
 	}
 	
 	// Check conversions that are proper decimal numbers between 0 and 7, inclusive
 	@Test
 	public void convertValidDecimalNumbers() {
 		
-		try {
+		//try {
 			decimalNumber = 0;
 			assertEquals("000", ThreeBitConverter.convertFromDecimal(decimalNumber));
 			
@@ -88,10 +88,10 @@ public class ThreeBitConversionTests {
 			
 			decimalNumber = 7;
 			assertEquals("111", ThreeBitConverter.convertFromDecimal(decimalNumber));
-		}
-		catch(ThreeBitInvalidDecimalException iDE) {
-			System.out.println("convertValidDecimalNumbers() threw an ThreeBitInvalidDecimalException");
-		}
+		//}
+		//catch(ThreeBitInvalidDecimalException iDE) {
+		//	System.out.println("convertValidDecimalNumbers() threw an ThreeBitInvalidDecimalException");
+		//}
 	}
 	
 	// ---------------
@@ -103,12 +103,12 @@ public class ThreeBitConversionTests {
 	public void testBadBitStringLengthException_WrongLength() throws ThreeBitBadBitStringLengthException {
 		
 		binaryString = "100110";
-		try {
+		//try {
 			dummyDecimal = ThreeBitConverter.convertFromBinary(binaryString);
-		}
-		catch(ThreeBitBadBitException bBE) {
-			System.out.println("ThreeBitBadBitException occured for binaryString = " + binaryString);
-		}
+		//}
+		//catch(ThreeBitBadBitException bBE) {
+		//	System.out.println("ThreeBitBadBitException occured for binaryString = " + binaryString);
+		//}
 	}
 		
 	// Test BadBitStringLengthException (binaryString = "0204")
@@ -116,12 +116,12 @@ public class ThreeBitConversionTests {
 	public void testBadBitStringLengthException_WrongLengthAndBits() throws ThreeBitBadBitStringLengthException {
 		
 		binaryString = "0204";
-		try {
+		//try {
 			dummyDecimal = ThreeBitConverter.convertFromBinary(binaryString);
-		}
-		catch(ThreeBitBadBitException bBE) {
-			System.out.println("ThreeBitBadBitException occured for binaryString = " + binaryString);
-		}
+		//}
+		//catch(ThreeBitBadBitException bBE) {
+		//	System.out.println("ThreeBitBadBitException occured for binaryString = " + binaryString);
+		//}
 	}
 	
 	// Test BadBitException (first bit)
@@ -129,12 +129,12 @@ public class ThreeBitConversionTests {
 	public void testBadBitException_FirstBit() throws ThreeBitBadBitException {
 		
 		binaryString = "510";
-		try {
+		//try {
 			dummyDecimal = ThreeBitConverter.convertFromBinary(binaryString);
-		}
-		catch (ThreeBitBadBitStringLengthException bBSLE) {
-			System.out.println("testBadBitException_FirstBit() threw a ThreeBitBadBitStringLengthException");
-		}
+		//}
+		//catch (ThreeBitBadBitStringLengthException bBSLE) {
+		//	System.out.println("testBadBitException_FirstBit() threw a ThreeBitBadBitStringLengthException");
+		//}
 	}
 	
 	// Test BadBitException (second bit)
@@ -142,12 +142,12 @@ public class ThreeBitConversionTests {
 	public void testBadBitException_SecondBit() throws ThreeBitBadBitException {
 		
 		binaryString = "090";
-		try {
+		//try {
 			dummyDecimal = ThreeBitConverter.convertFromBinary(binaryString);
-		}
-		catch (ThreeBitBadBitStringLengthException bBSLE) {
-			System.out.println("testBadBitException_SecondBit() threw a ThreeBitBadBitStringLengthException");
-		}
+		//}
+		//catch (ThreeBitBadBitStringLengthException bBSLE) {
+		//	System.out.println("testBadBitException_SecondBit() threw a ThreeBitBadBitStringLengthException");
+		//}
 	}
 	
 	// Test BadBitException (third bit)
@@ -155,12 +155,12 @@ public class ThreeBitConversionTests {
 	public void testBadBitException_ThirdBit() throws ThreeBitBadBitException {
 		
 		binaryString = "116";
-		try {
+		//try {
 			dummyDecimal = ThreeBitConverter.convertFromBinary(binaryString);
-		}
-		catch (ThreeBitBadBitStringLengthException bBSLE) {
-			System.out.println("testBadBitException_ThirdBit() threw a ThreeBitBadBitStringLengthException");
-		}
+		//}
+		//catch (ThreeBitBadBitStringLengthException bBSLE) {
+		//	System.out.println("testBadBitException_ThirdBit() threw a ThreeBitBadBitStringLengthException");
+		//}
 	}
 	
 	// Test InvalidDecimalException (decimalNumber < 0)

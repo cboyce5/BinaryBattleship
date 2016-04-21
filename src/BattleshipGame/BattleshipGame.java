@@ -4,15 +4,31 @@ public class BattleshipGame {
 	private GameBoard computerBoard;
 	private GameBoard humanBoard;
 	
-	private int convertToDecimal(String binNumb){
-		
-		return 0;
+
+	public BattleshipGame() {
+		super();
 	}
 	
-	private String convertToBinary(int decNumb){
+	public int convertToDecimal(String binNumb){
 		
-		return "0000";
+		return -1;
+	}
+	public String convertToBinary(int decNumb){
+		
+		return " ";
+	}
+	public void handleMove(GameCell selectedCell){
+		
+		
+	}
+	public void playGame(){
+		
+		
 	}
 	
+	public static void main(String[] args) {
+		//Insert main code//
+	}
+
 	
 }

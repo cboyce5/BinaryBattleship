@@ -8,11 +8,13 @@ import BattleshipGame.BattleshipGame;
 
 public class ConversionTests {
 
+	private static BattleshipGame bs = new BattleshipGame();
+	
+	//Tests for converting from base ten decimal to binary
 	@Test
-	public void test() {
-		BattleshipGame bs = new BattleshipGame();
-		
-		//Tests for converting from base ten decimal to binary (4 bits).
+	public void testConvertingToBinary() {
+
+		// 4 bits
 		assertEquals("0000", bs.convertToBinary(0, 4));
 		assertEquals("0001", bs.convertToBinary(1, 4));
 		assertEquals("0010", bs.convertToBinary(2, 4));
@@ -29,7 +31,7 @@ public class ConversionTests {
 		assertEquals("1101", bs.convertToBinary(13, 4));
 		assertEquals("1110", bs.convertToBinary(14, 4));
 		assertEquals("1111", bs.convertToBinary(15, 4));
-		
+
 		//Tests for converting from base ten decimal to binary (3 bits).
 		assertEquals("000", bs.convertToBinary(0, 3));
 		assertEquals("001", bs.convertToBinary(1, 3));
@@ -39,9 +41,13 @@ public class ConversionTests {
 		assertEquals("101", bs.convertToBinary(5, 3));
 		assertEquals("110", bs.convertToBinary(6, 3));
 		assertEquals("111", bs.convertToBinary(7, 3));
-		
-		//Tests for converting from binary back to base 10 decimal.
-			// 4-bit
+	}
+
+	// Tests for converting from binary back to base 10 decimal
+	@Test 
+	public void testConvertingToDecimal() {
+
+		// 4-bit
 		assertEquals(0, bs.convertToDecimal("0000"));
 		assertEquals(1, bs.convertToDecimal("0001"));
 		assertEquals(2, bs.convertToDecimal("0010"));
@@ -58,8 +64,8 @@ public class ConversionTests {
 		assertEquals(13, bs.convertToDecimal("1101"));
 		assertEquals(14, bs.convertToDecimal("1110"));
 		assertEquals(15, bs.convertToDecimal("1111"));
-		
-			// 3-bit
+
+		// 3-bit
 		assertEquals(0, bs.convertToDecimal("000"));
 		assertEquals(1, bs.convertToDecimal("001"));
 		assertEquals(2, bs.convertToDecimal("010"));
@@ -68,7 +74,6 @@ public class ConversionTests {
 		assertEquals(5, bs.convertToDecimal("101"));
 		assertEquals(6, bs.convertToDecimal("110"));
 		assertEquals(7, bs.convertToDecimal("111"));
-		
 	}
 
 }

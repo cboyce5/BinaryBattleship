@@ -21,11 +21,20 @@ public class BattleshipGame {
 			power = power - 1;
 		}
 		
-		return -1;//decNumb;
+		return decNumb;
 	}
 	public String convertToBinary(int decNumb, int numbBits){
 		
-		return " ";
+		String binNum = "";
+		if (decNumb < 8 && numbBits > 3) {binNum += '0';}
+		if (decNumb > 7 && numbBits > 3) {binNum += '1'; decNumb -= 8;}
+		int bitValue = 4;
+		for (int i = 0; i < 3; ++i) { // Only need 3 more bits to calculate
+			if (decNumb / bitValue > 0) {binNum += '1'; decNumb -= bitValue;}
+			else {binNum += '0';}
+			bitValue /= 2;
+		}
+		return binNum;
 	}
 	public boolean handleMove(GameCell selectedCell){
 		

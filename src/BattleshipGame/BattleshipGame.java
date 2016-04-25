@@ -1,12 +1,29 @@
 package BattleshipGame;
 
-public class BattleshipGame {
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+
+public class BattleshipGame extends JFrame{
 	public GameBoard computerBoard;
 	public GameBoard humanBoard;
 	
 
 	public BattleshipGame() {
 		super();
+		setUp();
+	}
+	
+	
+	public void setUp() {
+		computerBoard = new GameBoard(8,8, false);
+		humanBoard = new GameBoard(8,8, true);
+		setTitle("Binary Battleship");
+		setSize(800,500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new GridLayout(1,2));
+		add(computerBoard);
+		add(humanBoard);
 	}
 	
 	public int convertToDecimal(String binNumb){
@@ -46,7 +63,8 @@ public class BattleshipGame {
 	}
 	
 	public static void main(String[] args) {
-		//Insert main code//
+		BattleshipGame game = new BattleshipGame();
+		game.setVisible(true);
 	}
 
 	

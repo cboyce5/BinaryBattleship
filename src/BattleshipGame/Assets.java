@@ -1,6 +1,7 @@
 package BattleshipGame;
 
 import java.awt.Image;
+import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -11,7 +12,7 @@ public class Assets {
 	
 	private static Image loadImage(String path) {
 		try {
-			return ImageIO.read(Assets.class.getResource(path));		
+			return ImageIO.read(new File(path));		
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.exit(1);

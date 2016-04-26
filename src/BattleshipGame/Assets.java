@@ -1,15 +1,15 @@
 package BattleshipGame;
 
-import java.awt.image.BufferedImage;
+import java.awt.Image;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
 public class Assets {
 
-	public static BufferedImage hit, miss, puddle, ship, sunk, water;
+	public static Image hit, miss, puddle, ship, sunk, water;
 	
-	private static BufferedImage loadImage(String path) {
+	private static Image loadImage(String path) {
 		try {
 			return ImageIO.read(Assets.class.getResource(path));		
 		} catch (IOException e) {

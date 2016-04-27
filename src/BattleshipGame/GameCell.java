@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 public class GameCell {
 	private int row, column;
-	private static final int cellSize = 40;
+	public static final int cellSize = 40;
 	private CellState cellState;
 	private boolean containsShip;
 	public GameCell(int row, int column) {

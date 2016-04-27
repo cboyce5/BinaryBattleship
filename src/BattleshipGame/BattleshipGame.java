@@ -3,6 +3,8 @@ package BattleshipGame;
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class BattleshipGame extends JFrame{
 	public GameBoard computerBoard;
@@ -24,9 +26,10 @@ public class BattleshipGame extends JFrame{
 		setLayout(new GridLayout(1,2));
 		add(computerBoard);
 		add(humanBoard);
+	
 	}
 	
-	public int convertToDecimal(String binNumb){
+	public static int convertToDecimal(String binNumb){
 		
 		int decNumb = 0;
 		int power = binNumb.length() - 1;
@@ -54,8 +57,16 @@ public class BattleshipGame extends JFrame{
 		return binNum;
 	}
 	public boolean handleMove(GameCell selectedCell){
-		
-		return false;
+		switch (selectedCell.getCellState()) {
+		case NONE:
+			return true;
+		case HIT:
+			return false;
+		case MISS:
+			return false;
+		default:
+			return false;	
+		}
 	}
 	public void playGame(){
 		
@@ -63,9 +74,15 @@ public class BattleshipGame extends JFrame{
 	}
 	
 	public static void main(String[] args) {
+		JOptionPane.showMessageDialog(null,"Welcome to BattleShip!\nPlease enter your ship placements in the next screen.");
 		BattleshipGame game = new BattleshipGame();
 		game.setVisible(true);
+		HumanShipSetUp jd = new HumanShipSetUp();
+		jd.setModal(true);
+		jd.setVisible(true);
+		game.humanBoard.ships = jd.getShips();
+		game.humanBoard.setShips();
+		game.humanBoard.repaint();
 	}
-
 	
 }

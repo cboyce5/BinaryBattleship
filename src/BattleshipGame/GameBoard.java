@@ -1,9 +1,11 @@
 package BattleshipGame;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GameBoard extends JPanel{
@@ -11,6 +13,7 @@ public class GameBoard extends JPanel{
 	private int numRows, numColumns;
 	public GameCell[][] board;
 	public ArrayList<Ship> ships;
+	private JLabel label;
 	public GameBoard(int numRows, int numColumns, boolean isHuman) {
 		super();
 		this.numRows = numRows;
@@ -27,13 +30,10 @@ public class GameBoard extends JPanel{
 				board[i][j] = new GameCell(i, j);
 			}
 		}
-		if(isHuman){
-			HumanShipSetUp jd = new HumanShipSetUp();
-			jd.setVisible(true);
-		}
-		else{
+		if(!isHuman){
 			initializeShipsComputer();
 		}
+	
 	}
 	public void paintComponent(Graphics g) {
 		for(int i = 0; i < numRows; i++){
@@ -41,9 +41,15 @@ public class GameBoard extends JPanel{
 				board[i][j].draw(g);
 				if(isHuman){
 					board[i][j].humanDraw(g);
+					Font myFont = new Font("Serif", Font.BOLD, 18);
+					g.setFont(myFont);
+					g.drawString("Human Board", 0, GameCell.cellSize * numRows + 20);
 				}
 				else{
 					board[i][j].computerDraw(g);
+					Font myFont = new Font("Serif", Font.BOLD, 18);
+					g.setFont(myFont);
+					g.drawString("Computer Board", 0, GameCell.cellSize * numRows + 20);
 				}
 			}
 		}

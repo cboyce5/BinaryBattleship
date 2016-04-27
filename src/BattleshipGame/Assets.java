@@ -10,23 +10,49 @@ public class Assets {
 
 	public static Image hit, miss, puddle, ship, sunk, water;
 	
-	private static Image loadImage(String path) {
+	public Assets() {
+		initAssets();
+	}
+	
+	public static Image loadImage(String path) {
+		/*
 		try {
 			return ImageIO.read(new File(path));		
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Error reading input file for:");
+			System.out.println(path);
 			System.exit(1);
 		}
+		*/
 		return null;
 	}
 	
 	public static void initAssets() {
 		
-		hit = loadImage("Hit.png");
-		miss = loadImage("Miss.png");
-		puddle = loadImage("Puddle.png");
-		ship = loadImage("Ship.png");
-		sunk = loadImage("Sunk.png");
-		water = loadImage("Water.png");
+		hit = loadImage("resources/Hit.png");
+		miss = loadImage("resources/Miss.png");
+		puddle = loadImage("resources/Puddle.png");
+		ship = loadImage("resources//Ship.png");
+		sunk = loadImage("resources/Sunk.png");
+		water = loadImage("resources/Water.png");
+	}
+	
+	public static Image getHit() {
+		return hit;
+	}
+	public static Image getMiss() {
+		return miss;
+	}
+	public static Image getPuddle() {
+		return puddle;
+	}
+	public static Image getShip() {
+		return ship;
+	}
+	public static Image getSunk() {
+		return sunk;
+	}
+	public static Image getWater() {
+		return water;
 	}
 }

@@ -15,7 +15,7 @@ public class Assets {
 	}
 	
 	public static Image loadImage(String path) {
-		/*
+		
 		try {
 			return ImageIO.read(new File(path));		
 		} catch (IOException e) {
@@ -23,7 +23,7 @@ public class Assets {
 			System.out.println(path);
 			System.exit(1);
 		}
-		*/
+		
 		return null;
 	}
 	

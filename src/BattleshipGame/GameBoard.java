@@ -36,6 +36,7 @@ public class GameBoard extends JPanel{
 	
 	}
 	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		for(int i = 0; i < numRows; i++){
 			for(int j = 0; j < numColumns; j++){
 				board[i][j].draw(g);
@@ -54,6 +55,7 @@ public class GameBoard extends JPanel{
 			}
 		}
 	}
+	
 	public void initializeShipsComputer(){
 		ships.add(new Ship(0, 0, Direction.RIGHT, 3));
 		ships.add(new Ship(3, 1, Direction.DOWN, 4));

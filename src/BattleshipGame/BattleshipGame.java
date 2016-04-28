@@ -77,7 +77,7 @@ public class BattleshipGame extends JFrame{
 		JOptionPane.showMessageDialog(null,"Welcome to BattleShip!\nPlease enter your ship placements in the next screen.");
 		BattleshipGame game = new BattleshipGame();
 		game.setVisible(true);
-		HumanShipSetUp jd = new HumanShipSetUp();
+		HumanShipSetUp jd = new HumanShipSetUp(game.humanBoard);
 		jd.setModal(true);
 		jd.setVisible(true);
 		game.humanBoard.ships = jd.getShips();

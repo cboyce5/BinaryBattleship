@@ -20,11 +20,14 @@ public class HumanShipSetUp extends JDialog{
 	private ArrayList<Ship> ships;
 	
 	private JButton submitButton;
+	private JButton presetButton;
+	private GameBoard gb;
 	
-	public HumanShipSetUp() {
+	public HumanShipSetUp(GameBoard gb) {
+		this.gb = gb;
 		setTitle("Set your ships");
-		setSize(400, 450);
-		setLayout(new GridLayout(5,1));
+		setSize(400, 500);
+		setLayout(new GridLayout(6,1));
 		setUp();
 	}
 	public void setUp(){
@@ -89,6 +92,24 @@ public class HumanShipSetUp extends JDialog{
 		ship4.add(lc4);
 		ship4.add(tfc4);
 		
+		presetButton = new JButton("Use preset ships");
+		presetButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				d1.setSelectedItem(Direction.DOWN);
+				d2.setSelectedItem(Direction.UP);
+				d3.setSelectedItem(Direction.LEFT);
+				d4.setSelectedItem(Direction.RIGHT);
+				tfr1.setText("001");
+				tfr2.setText("111");
+				tfr3.setText("010");
+				tfr4.setText("000");
+				tfc1.setText("001");
+				tfc2.setText("111");
+				tfc3.setText("110");
+				tfc4.setText("000");
+			}
+		});
+		
 		submitButton = new JButton("Submit your ships");
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -115,6 +136,7 @@ public class HumanShipSetUp extends JDialog{
 		add(ship2);
 		add(ship3);
 		add(ship4);
+		add(presetButton);
 		add(submitButton);
 	}
 	

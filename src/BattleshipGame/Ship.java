@@ -4,12 +4,20 @@ public class Ship {
 	private int startRow, startColumn;
 	private Direction shipDirection;
 	private int shipLength;
+	private boolean sunk;
 	public Ship(int startRow, int startColumn, Direction shipDirection, int shipLength) {
 		super();
 		this.startRow = startRow;
 		this.startColumn = startColumn;
 		this.shipDirection = shipDirection;
 		this.shipLength = shipLength;
+		sunk = false;
+	}
+	public boolean isSunk() {
+		return sunk;
+	}
+	public void setSunk(boolean sunk) {
+		this.sunk = sunk;
 	}
 	public int getStartRow() {
 		return startRow;

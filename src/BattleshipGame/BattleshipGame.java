@@ -6,6 +6,9 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+//TODO : REMOVE SHIPS
+//		 MAYBE DRAW THE SHIP IF SUNK
+//		 MAYBE MAKE THE JDIALOG A PANEL THAT WE COULD ADD TO BOARD
 
 public class BattleshipGame extends JFrame{
 	public GameBoard computerBoard;
@@ -78,16 +81,19 @@ public class BattleshipGame extends JFrame{
 				CoordinateDialog dialog = new CoordinateDialog(this.computerBoard);
 				dialog.setModal(true);
 				dialog.setVisible(true);
-				
 				humanBoard.setTurn(false);
+				if(computerBoard.checkAllSunk()){
+					JOptionPane.showMessageDialog(null,"Congratulations!! You have won the binary battleship!");
+					break;
+				}
 			}
 			else {
 				try {
-				    Thread.sleep(3000);                 //1000 milliseconds is one second.
+				    Thread.sleep(1500);                 //1000 milliseconds is one second.
 				} catch(InterruptedException ex) {
 				    Thread.currentThread().interrupt();
 				}
-				//
+				
 				Random rn = new Random();
 				int row;
 				int col;
@@ -96,6 +102,15 @@ public class BattleshipGame extends JFrame{
 					col = rn.nextInt(8);
 				}
 				while(!humanBoard.handleMove(row, col));
+				try {
+				    Thread.sleep(1500);                 //1000 milliseconds is one second.
+				} catch(InterruptedException ex) {
+				    Thread.currentThread().interrupt();
+				}
+				if(humanBoard.checkAllSunk()){
+					JOptionPane.showMessageDialog(null,"Uh oh!, the computer beat you!  GET WRECKED");
+					break;
+				}
 				humanBoard.setTurn(true);
 			}
 		}

@@ -19,8 +19,10 @@ public class GameBoard extends JPanel {
 	public ArrayList<Ship> ships;
 	private JLabel label;
 	private boolean turn = false;
-	int lastRow;
-	int lastCol;
+	private int lastRow;
+	private int lastCol;
+	private boolean correctAnswer = false;
+
 	public GameBoard(int numRows, int numColumns, boolean isHuman) {
 		super();
 		this.numRows = numRows;
@@ -68,7 +70,25 @@ public class GameBoard extends JPanel {
 			}
 		}
 	}
+	public boolean isCorrectAnswer() {
+		return correctAnswer;
+	}
+	public void setCorrectAnswer(boolean correctAnswer) {
+		this.correctAnswer = correctAnswer;
+	}
 	
+	public int getLastRow() {
+		return lastRow;
+	}
+	public void setLastRow(int lastRow) {
+		this.lastRow = lastRow;
+	}
+	public int getLastCol() {
+		return lastCol;
+	}
+	public void setLastCol(int lastCol) {
+		this.lastCol = lastCol;
+	}
 	public void initializeShipsComputer(){
 		ships.add(new Ship(0, 0, Direction.RIGHT, 3));
 		ships.add(new Ship(3, 1, Direction.DOWN, 4));
@@ -83,6 +103,7 @@ public class GameBoard extends JPanel {
 		case NONE:
 			if(board[row][column].containsShip()){
 				board[row][column].setCellState(CellState.HIT);
+				checkShipSunk();
 			}
 			else{
 				board[row][column].setCellState(CellState.MISS);
@@ -128,8 +149,105 @@ public class GameBoard extends JPanel {
 	public void setTurn(boolean turn) {
 		this.turn = turn;
 	}
-
+	public boolean checkAllSunk(){
+		for(Ship s: ships){
+			if(!s.isSunk()){
+				return false;
+			}
+		}
+		return true;
+	}
 	public void checkShipSunk() {
-		
+		for(Ship s : ships){
+			if(s.getShipDirection() == Direction.UP){
+				int count = 0;
+				for(int i = 0; i < s.getShipLength(); i++){
+					if (board[s.getStartRow()-i][s.getStartColumn()].getCellState() == CellState.HIT) {
+						count++;
+					}
+				}
+				if (count == s.getShipLength()) {
+					if(!isHuman){
+						BinaryQuestionDialog dialog = new BinaryQuestionDialog(this);
+						dialog.setModal(true);
+						dialog.setVisible(true);
+					}
+					if (correctAnswer || isHuman) {
+						s.setSunk(true);
+						for(int i = 0; i < s.getShipLength(); i++){
+							board[s.getStartRow()-i][s.getStartColumn()].setCellState(CellState.SUNK);
+						}
+					}
+					correctAnswer = false;
+					
+				}
+			}
+			else if(s.getShipDirection() == Direction.RIGHT){
+				int count = 0;
+				for(int i = 0; i < s.getShipLength(); i++){
+					if (board[s.getStartRow()][s.getStartColumn()+i].getCellState() == CellState.HIT) {
+						count++;
+					}
+				}
+				if (count == s.getShipLength()) {
+					if(!isHuman){
+						BinaryQuestionDialog dialog = new BinaryQuestionDialog(this);
+						dialog.setModal(true);
+						dialog.setVisible(true);
+					}
+					if (correctAnswer || isHuman) {
+						s.setSunk(true);
+						for(int i = 0; i < s.getShipLength(); i++){
+							board[s.getStartRow()][s.getStartColumn()+i].setCellState(CellState.SUNK);
+						}
+					}
+					correctAnswer = false;
+				}
+			}
+			else if(s.getShipDirection() == Direction.DOWN){
+				int count = 0;
+				for(int i = 0; i < s.getShipLength(); i++){
+					if (board[s.getStartRow()+i][s.getStartColumn()].getCellState() == CellState.HIT) {
+						count++;
+					}
+				}
+				if (count == s.getShipLength()) {
+					if(!isHuman){
+						BinaryQuestionDialog dialog = new BinaryQuestionDialog(this);
+						dialog.setModal(true);
+						dialog.setVisible(true);
+					}
+					if (correctAnswer || isHuman) {
+						s.setSunk(true);
+						for(int i = 0; i < s.getShipLength(); i++){
+							board[s.getStartRow()+i][s.getStartColumn()].setCellState(CellState.SUNK);
+						}
+					}
+					correctAnswer = false;
+				}
+			}
+			else if(s.getShipDirection() == Direction.LEFT){
+				int count = 0;
+				for(int i = 0; i < s.getShipLength(); i++){
+					if (board[s.getStartRow()][s.getStartColumn()-i].getCellState() == CellState.HIT) {
+						count++;
+					}
+				}
+				if (count == s.getShipLength()) {
+					if(!isHuman){
+						BinaryQuestionDialog dialog = new BinaryQuestionDialog(this);
+						dialog.setModal(true);
+						dialog.setVisible(true);
+					}
+					if (correctAnswer || isHuman) {
+						s.setSunk(true);
+						for(int i = 0; i < s.getShipLength(); i++){
+							board[s.getStartRow()][s.getStartColumn()-i].setCellState(CellState.SUNK);
+						}
+					}
+					correctAnswer = false;
+				}
+			}
+		}
 	}
 }

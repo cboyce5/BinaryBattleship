@@ -33,7 +33,7 @@ public class GameCell {
 	public void setCellState(CellState cellState) {
 		this.cellState = cellState;
 	}
-	public boolean isContainsShip() {
+	public boolean containsShip() {
 		return containsShip;
 	}
 	public void setContainsShip(boolean containsShip) {
@@ -57,19 +57,25 @@ public class GameCell {
 			break;
 		case MISS:
 			g.setColor(Color.white);
-			g.drawOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
 			break;
 		case SUNK:
 			g.setColor(Color.red);
-			g.drawOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
 			break;
 		case HIT:
 			g.setColor(Color.yellow);
-			g.drawOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
 			break;
 		}
 	}
 	public void computerDraw(Graphics g){
+		//
+		//
+		//  TODO !!!!!!!!!!!!  
+		//  REMOVE SHIP IF STATEMENT
+		//
+		//
 		if(containsShip){
 			g.setColor(Color.gray);
 			g.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
@@ -79,15 +85,15 @@ public class GameCell {
 			break;
 		case MISS:
 			g.setColor(Color.white);
-			g.drawOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
 			break;
 		case SUNK:
 			g.setColor(Color.red);
-			g.drawOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
 			break;
 		case HIT:
 			g.setColor(Color.yellow);
-			g.drawOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
 			break;
 		}
 	}

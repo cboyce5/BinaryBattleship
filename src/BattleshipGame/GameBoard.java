@@ -1,19 +1,26 @@
 package BattleshipGame;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class GameBoard extends JPanel{
+public class GameBoard extends JPanel {
 	boolean isHuman;
 	private int numRows, numColumns;
 	public GameCell[][] board;
 	public ArrayList<Ship> ships;
 	private JLabel label;
+	private boolean turn = false;
+	int lastRow;
+	int lastCol;
 	public GameBoard(int numRows, int numColumns, boolean isHuman) {
 		super();
 		this.numRows = numRows;
@@ -32,6 +39,10 @@ public class GameBoard extends JPanel{
 		}
 		if(!isHuman){
 			initializeShipsComputer();
+			this.turn = false;
+		}
+		else {
+			this.turn = true;
 		}
 	
 	}
@@ -44,12 +55,14 @@ public class GameBoard extends JPanel{
 					board[i][j].humanDraw(g);
 					Font myFont = new Font("Serif", Font.BOLD, 18);
 					g.setFont(myFont);
+					g.setColor(Color.black);
 					g.drawString("Human Board", 0, GameCell.cellSize * numRows + 20);
 				}
 				else{
 					board[i][j].computerDraw(g);
 					Font myFont = new Font("Serif", Font.BOLD, 18);
 					g.setFont(myFont);
+					g.setColor(Color.black);
 					g.drawString("Computer Board", 0, GameCell.cellSize * numRows + 20);
 				}
 			}
@@ -62,6 +75,27 @@ public class GameBoard extends JPanel{
 		ships.add(new Ship(5, 6, Direction.UP, 5));
 		ships.add(new Ship(4, 4, Direction.LEFT, 2));
 		setShips();
+	}
+	public boolean handleMove(int row, int column){
+		lastRow = row;
+		lastCol = column;
+		switch (board[row][column].getCellState()) {
+		case NONE:
+			if(board[row][column].containsShip()){
+				board[row][column].setCellState(CellState.HIT);
+			}
+			else{
+				board[row][column].setCellState(CellState.MISS);
+			}
+			repaint();
+			return true;
+		case HIT:
+			return false;
+		case MISS:
+			return false;
+		default:
+			return false;	
+		}
 	}
 
 	public void setShips(){
@@ -87,5 +121,15 @@ public class GameBoard extends JPanel{
 				}
 			}
 		}
+	}
+	public boolean isTurn() {
+		return turn;
+	}
+	public void setTurn(boolean turn) {
+		this.turn = turn;
+	}
+
+	public void checkShipSunk() {
+		
 	}
 }

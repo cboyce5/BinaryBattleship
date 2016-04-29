@@ -92,7 +92,7 @@ public class HumanShipSetUp extends JDialog{
 		ship4.add(lc4);
 		ship4.add(tfc4);
 		
-		presetButton = new JButton("Use preset ships");
+		presetButton = new JButton("Use ship presets");
 		presetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				d1.setSelectedItem(Direction.DOWN);

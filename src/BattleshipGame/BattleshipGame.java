@@ -1,6 +1,7 @@
 package BattleshipGame;
 
 import java.awt.GridLayout;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -56,20 +57,48 @@ public class BattleshipGame extends JFrame{
 		}
 		return binNum;
 	}
-	public boolean handleMove(GameCell selectedCell){
+	public static boolean handleMove(GameCell selectedCell){
 		switch (selectedCell.getCellState()) {
 		case NONE:
+			
 			return true;
 		case HIT:
+			
 			return false;
 		case MISS:
+			
 			return false;
 		default:
 			return false;	
 		}
 	}
 	public void playGame(){
-		
+		while (this.isVisible()) {
+			if (humanBoard.isTurn()) {
+				CoordinateDialog dialog = new CoordinateDialog(this.computerBoard);
+				dialog.setModal(true);
+				dialog.setVisible(true);
+				
+				humanBoard.setTurn(false);
+			}
+			else {
+				try {
+				    Thread.sleep(3000);                 //1000 milliseconds is one second.
+				} catch(InterruptedException ex) {
+				    Thread.currentThread().interrupt();
+				}
+				//
+				Random rn = new Random();
+				int row;
+				int col;
+				do {
+					row = rn.nextInt(8);
+					col = rn.nextInt(8);
+				}
+				while(!humanBoard.handleMove(row, col));
+				humanBoard.setTurn(true);
+			}
+		}
 		
 	}
 	
@@ -83,6 +112,7 @@ public class BattleshipGame extends JFrame{
 		game.humanBoard.ships = jd.getShips();
 		game.humanBoard.setShips();
 		game.humanBoard.repaint();
+		game.playGame();
 	}
 	
 }

@@ -8,6 +8,7 @@ public class GameCell {
 	public static final int cellSize = 40;
 	private CellState cellState;
 	private boolean containsShip;
+	Assets assets = new Assets();
 	public GameCell(int row, int column) {
 		super();
 		this.row = row;
@@ -40,8 +41,9 @@ public class GameCell {
 		this.containsShip = containsShip;
 	}
 	public void draw(Graphics g){
-		g.setColor(Color.blue);
-		g.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
+		//g.setColor(Color.blue);
+		//g.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
+		g.drawImage(assets.getPuddle(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 		g.setColor(Color.black);
 		g.drawRect(column * cellSize, row * cellSize, cellSize, cellSize);
 		//TODO Add portion which will displays hits and misses.
@@ -49,23 +51,27 @@ public class GameCell {
 	}
 	public void humanDraw(Graphics g){
 		if(containsShip){
-			g.setColor(Color.gray);
-			g.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
+			//g.setColor(Color.gray);
+			//g.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.drawImage(assets.getShip(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 		}
 		switch(cellState){
 		case NONE:
 			break;
 		case MISS:
-			g.setColor(Color.white);
-			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			//g.setColor(Color.white);
+			//g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.drawImage(assets.getMiss(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 			break;
 		case SUNK:
-			g.setColor(Color.red);
-			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			//g.setColor(Color.red);
+			//g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.drawImage(assets.getSunk(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 			break;
 		case HIT:
-			g.setColor(Color.yellow);
-			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			//g.setColor(Color.yellow);
+			//g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.drawImage(assets.getHit(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 			break;
 		}
 	}
@@ -77,23 +83,27 @@ public class GameCell {
 		//
 		//
 		if(containsShip){
-			g.setColor(Color.gray);
-			g.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
+			//g.setColor(Color.gray);
+			//g.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.drawImage(assets.getShip(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 		}
 		switch(cellState){
 		case NONE:
 			break;
 		case MISS:
-			g.setColor(Color.white);
-			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			//g.setColor(Color.white);
+			//g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.drawImage(assets.getMiss(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 			break;
 		case SUNK:
-			g.setColor(Color.red);
-			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			//g.setColor(Color.red);
+			//g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.drawImage(assets.getSunk(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 			break;
 		case HIT:
-			g.setColor(Color.yellow);
-			g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			//g.setColor(Color.yellow);
+			//g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
+			g.drawImage(assets.getHit(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 			break;
 		}
 	}

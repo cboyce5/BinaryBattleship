@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 public class Assets {
 
-	public static Image hit, miss, puddle, ship, sunk, water;
+	public static Image hit, miss, puddle, ship, sunk, water, hitC;
 	
 	public Assets() {
 		initAssets();
@@ -35,6 +35,7 @@ public class Assets {
 		ship = loadImage("resources//Ship.png");
 		sunk = loadImage("resources/Sunk.png");
 		water = loadImage("resources/Water.png");
+		hitC = loadImage("resources/HitC.png");
 	}
 	
 	public static Image getHit() {
@@ -54,5 +55,8 @@ public class Assets {
 	}
 	public static Image getWater() {
 		return water;
+	}
+	public static Image getHitC() {
+		return hitC;
 	}
 }

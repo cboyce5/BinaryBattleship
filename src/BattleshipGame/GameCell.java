@@ -103,7 +103,7 @@ public class GameCell {
 		case HIT:
 			//g.setColor(Color.yellow);
 			//g.fillOval(column * cellSize, row * cellSize, cellSize, cellSize);
-			g.drawImage(assets.getHit(), column * cellSize, row * cellSize, cellSize, cellSize, null);
+			g.drawImage(assets.getHitC(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 			break;
 		}
 	}

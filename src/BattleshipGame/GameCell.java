@@ -85,7 +85,9 @@ public class GameCell {
 		if(containsShip){
 			//g.setColor(Color.gray);
 			//g.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
-			g.drawImage(assets.getShip(), column * cellSize, row * cellSize, cellSize, cellSize, null);
+			
+			// To show computer ships for testing uncomment the line below :)
+			//g.drawImage(assets.getShip(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 		}
 		switch(cellState){
 		case NONE:

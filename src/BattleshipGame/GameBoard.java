@@ -114,6 +114,7 @@ public class GameBoard extends JPanel {
 		int shipLength = 2;
 		Direction shipDirection = Direction.RIGHT;
 		boolean retry = false;
+		int iLast = -1;
 		
 		for(int i = 0; i < 4; i++) {			
 			int row = r.nextInt(numRows);
@@ -130,7 +131,7 @@ public class GameBoard extends JPanel {
 			}
 			switch (direction) {
 			case 0:
-				if((numRows - (row + 1)) < (shipLength)) retry = true;
+				if((numRows - (row)) < (shipLength)) retry = true;
 				shipDirection = Direction.DOWN;
 				break;
 			case 1:
@@ -143,18 +144,37 @@ public class GameBoard extends JPanel {
 				break;
 			case 3:
 			default:
-				if((numColumns - (column + 1)) < (shipLength)) retry = true;
+				if((numColumns - (column)) < (shipLength)) retry = true;
 				break;
 			}
 			if (retry) {
 				System.out.println("Retry");
-				i--;
+				i = iLast;
 				retry = false;
 				continue;
 			}
-			shipPlacement.add(new GameCell(row, column));
+			// Add all cells to used cells
+			for(int j = 0; j < shipLength; j++) {
+				if(shipDirection == Direction.DOWN) {
+					shipPlacement.add(new GameCell(row + j, column));					
+				}
+				else if(shipDirection == Direction.LEFT) {
+					shipPlacement.add(new GameCell(row, column - j));
+				}
+				else if(shipDirection == Direction.UP){
+					shipPlacement.add(new GameCell(row - j, column));
+				}
+				else {
+					shipPlacement.add(new GameCell(row, column + j));
+				}
+			}
+			// Add the ship to ships array
 			ships.add(new Ship(row, column, shipDirection, shipLength));
+			System.out.println(shipPlacement.size());
+			
+			// RESET factors
 			shipLength++;
+			iLast = i;
 			shipDirection = Direction.RIGHT;
 		}
 		

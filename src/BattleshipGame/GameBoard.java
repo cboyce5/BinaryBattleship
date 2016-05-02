@@ -126,9 +126,11 @@ public class GameBoard extends JPanel {
 			
 			switch (direction) {
 			case 0:
-				if((numRows - (row)) < (shipLength)) retry = true;
+				//if((numRows - (row)) < (shipLength)) retry = true;
 				for(int j = 0; j < shipLength; j++) {
+					if(row + j > 7) retry = true;
 					Point currentPoint = new Point(row + j, column);
+					System.out.println(currentPoint);
 					if(!shipPlacement.contains(currentPoint)) {
 						singleShip.add(currentPoint);
 					}
@@ -140,9 +142,11 @@ public class GameBoard extends JPanel {
 				shipDirection = Direction.DOWN;
 				break;
 			case 1:
-				if((column + 1) < (shipLength)) retry = true;
+				//if((column + 1) < (shipLength)) retry = true;
 				for(int j = 0; j < shipLength; j++) {
+					if(column - j < 0) retry = true;
 					Point currentPoint = new Point(row, column - j);
+					System.out.println(currentPoint);
 					if(!shipPlacement.contains(currentPoint)) {
 						singleShip.add(currentPoint);
 					}
@@ -154,9 +158,11 @@ public class GameBoard extends JPanel {
 				shipDirection = Direction.LEFT;
 				break;
 			case 2:
-				if((row + 1) < (shipLength)) retry = true;
+				//if((row + 1) < (shipLength)) retry = true;
 				for(int j = 0; j < shipLength; j++) {
+					if(row - j < 0) retry = true;
 					Point currentPoint = new Point(row - j, column);
+					System.out.println(currentPoint);
 					if(!shipPlacement.contains(currentPoint)) {
 						singleShip.add(currentPoint);
 					}
@@ -169,9 +175,11 @@ public class GameBoard extends JPanel {
 				break;
 			case 3:
 			default:
-				if((numColumns - (column)) < (shipLength)) retry = true;
+				//if((numColumns - (column)) < (shipLength)) retry = true;
 				for(int j = 0; j < shipLength; j++) {
+					if(column + j > 7) retry = true;
 					Point currentPoint = new Point(row, column + j);
+					System.out.println(currentPoint);
 					if(!shipPlacement.contains(currentPoint)) {
 						singleShip.add(currentPoint);
 					}

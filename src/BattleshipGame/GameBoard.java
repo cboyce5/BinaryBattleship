@@ -3,6 +3,7 @@ package BattleshipGame;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -110,7 +111,8 @@ public class GameBoard extends JPanel {
 	public void initializeShipsComputer(){
 		Random r = new Random();
 		
-		ArrayList<GameCell> shipPlacement = new ArrayList<GameCell>();
+		ArrayList<Point> shipPlacement = new ArrayList<Point>();
+		ArrayList<Point> singleShip = new ArrayList<Point>();
 		int shipLength = 2;
 		Direction shipDirection = Direction.RIGHT;
 		boolean retry = false;
@@ -120,31 +122,64 @@ public class GameBoard extends JPanel {
 			int row = r.nextInt(numRows);
 			int column = r.nextInt(numColumns);
 			int direction = r.nextInt(4);
+			singleShip.clear();
 			
-			for(int j = 0; j < shipPlacement.size(); j++) {
-				GameCell currentShip = shipPlacement.get(j);
-				if(row == (currentShip.getRow()) && column == currentShip.getColumn()) {
-					System.out.println("shipPlacement retry");
-					retry = true;
-					break;
-				}
-			}
 			switch (direction) {
 			case 0:
 				if((numRows - (row)) < (shipLength)) retry = true;
+				for(int j = 0; j < shipLength; j++) {
+					Point currentPoint = new Point(row + j, column);
+					if(!shipPlacement.contains(currentPoint)) {
+						singleShip.add(currentPoint);
+					}
+					else {
+						System.out.println("shipPlacement retry");
+						retry = true;
+					}
+				}
 				shipDirection = Direction.DOWN;
 				break;
 			case 1:
 				if((column + 1) < (shipLength)) retry = true;
+				for(int j = 0; j < shipLength; j++) {
+					Point currentPoint = new Point(row, column - j);
+					if(!shipPlacement.contains(currentPoint)) {
+						singleShip.add(currentPoint);
+					}
+					else {
+						System.out.println("shipPlacement retry");
+						retry = true;
+					}
+				}
 				shipDirection = Direction.LEFT;
 				break;
 			case 2:
 				if((row + 1) < (shipLength)) retry = true;
+				for(int j = 0; j < shipLength; j++) {
+					Point currentPoint = new Point(row - j, column);
+					if(!shipPlacement.contains(currentPoint)) {
+						singleShip.add(currentPoint);
+					}
+					else {
+						System.out.println("shipPlacement retry");
+						retry = true;
+					}
+				}
 				shipDirection = Direction.UP;
 				break;
 			case 3:
 			default:
 				if((numColumns - (column)) < (shipLength)) retry = true;
+				for(int j = 0; j < shipLength; j++) {
+					Point currentPoint = new Point(row, column + j);
+					if(!shipPlacement.contains(currentPoint)) {
+						singleShip.add(currentPoint);
+					}
+					else {
+						System.out.println("shipPlacement retry");
+						retry = true;
+					}
+				}
 				break;
 			}
 			if (retry) {
@@ -154,24 +189,25 @@ public class GameBoard extends JPanel {
 				continue;
 			}
 			// Add all cells to used cells
+			shipPlacement.addAll(singleShip);
+			/*
 			for(int j = 0; j < shipLength; j++) {
 				if(shipDirection == Direction.DOWN) {
-					shipPlacement.add(new GameCell(row + j, column));					
+					shipPlacement.addAll(singleShip);					
 				}
 				else if(shipDirection == Direction.LEFT) {
-					shipPlacement.add(new GameCell(row, column - j));
+					shipPlacement.addAll(singleShip);	
 				}
 				else if(shipDirection == Direction.UP){
-					shipPlacement.add(new GameCell(row - j, column));
+					shipPlacement.addAll(singleShip);	
 				}
 				else {
-					shipPlacement.add(new GameCell(row, column + j));
+					shipPlacement.addAll(singleShip);	
 				}
 			}
+			*/
 			// Add the ship to ships array
-			ships.add(new Ship(row, column, shipDirection, shipLength));
-			System.out.println(shipPlacement.size());
-			
+			ships.add(new Ship(row, column, shipDirection, shipLength));			
 			// RESET factors
 			shipLength++;
 			iLast = i;
@@ -187,6 +223,7 @@ public class GameBoard extends JPanel {
 		System.out.println(ships.size());
 		setShips();
 	}
+	
 	public boolean handleMove(int row, int column){
 		lastRow = row;
 		lastCol = column;

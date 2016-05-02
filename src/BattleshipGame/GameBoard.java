@@ -16,6 +16,10 @@ public class GameBoard extends JPanel {
 	boolean isHuman;
 	private int numRows, numColumns;
 	public GameCell[][] board;
+	// For background
+	public GameCell[][] background;
+	private static final int BACKGROUND_ROWS = 4;
+	private static final int BACKGROUND_COLUMNS = 4;
 	public ArrayList<Ship> ships;
 	private JLabel label;
 	private boolean turn = false;
@@ -34,6 +38,12 @@ public class GameBoard extends JPanel {
 	}
 	public void initialize(){
 		board = new GameCell[numRows][numColumns];
+		background = new GameCell[BACKGROUND_ROWS][BACKGROUND_COLUMNS];
+		for(int i = 0; i < BACKGROUND_ROWS; i++) {
+			for(int j = 0; j < BACKGROUND_COLUMNS; j++) {
+				background[i][j] = new GameCell(i, j);
+			}
+		}
 		for(int i = 0; i < numRows; i++){
 			for(int j = 0; j < numColumns; j++){
 				board[i][j] = new GameCell(i, j);
@@ -50,6 +60,13 @@ public class GameBoard extends JPanel {
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		// Possibly add background tiles here
+		for(int i = 0; i < BACKGROUND_ROWS; i++) {
+			for(int j = 0; j < BACKGROUND_COLUMNS; j++) {
+				background[i][j].drawBackground(g);
+			}
+		}
+		// End background tiles
 		for(int i = 0; i < numRows; i++){
 			for(int j = 0; j < numColumns; j++){
 				board[i][j].draw(g);

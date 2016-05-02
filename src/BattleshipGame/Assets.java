@@ -61,7 +61,7 @@ public class Assets {
 	public static Image getHitC() {
 		return hitC;
 	}
-	public static Image getPlankes() {
+	public static Image getPlanks() {
 		return planks;
 	}
 }

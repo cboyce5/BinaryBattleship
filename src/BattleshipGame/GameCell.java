@@ -40,6 +40,11 @@ public class GameCell {
 	public void setContainsShip(boolean containsShip) {
 		this.containsShip = containsShip;
 	}
+	
+	public void drawBackground(Graphics g) {
+		g.drawImage(assets.getPlanks(), column * cellSize * 3, row * cellSize * 3, cellSize * 3, cellSize * 3, null);
+	}
+	
 	public void draw(Graphics g){
 		//g.setColor(Color.blue);
 		//g.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);

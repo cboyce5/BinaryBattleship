@@ -92,7 +92,7 @@ public class GameCell {
 			//g.fillRect(column * cellSize, row * cellSize, cellSize, cellSize);
 			
 			// To show computer ships for testing uncomment the line below :)
-			//g.drawImage(assets.getShip(), column * cellSize, row * cellSize, cellSize, cellSize, null);
+			g.drawImage(assets.getShip(), column * cellSize, row * cellSize, cellSize, cellSize, null);
 		}
 		switch(cellState){
 		case NONE:

@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -107,10 +108,63 @@ public class GameBoard extends JPanel {
 		this.lastCol = lastCol;
 	}
 	public void initializeShipsComputer(){
+		Random r = new Random();
+		
+		ArrayList<GameCell> shipPlacement = new ArrayList<GameCell>();
+		int shipLength = 2;
+		Direction shipDirection = Direction.RIGHT;
+		boolean retry = false;
+		
+		for(int i = 0; i < 4; i++) {			
+			int row = r.nextInt(numRows);
+			int column = r.nextInt(numColumns);
+			int direction = r.nextInt(4);
+			
+			for(int j = 0; j < shipPlacement.size(); j++) {
+				GameCell currentShip = shipPlacement.get(j);
+				if(row == (currentShip.getRow()) && column == currentShip.getColumn()) {
+					System.out.println("shipPlacement retry");
+					retry = true;
+					break;
+				}
+			}
+			switch (direction) {
+			case 0:
+				if((numRows - (row + 1)) < (shipLength)) retry = true;
+				shipDirection = Direction.DOWN;
+				break;
+			case 1:
+				if((column + 1) < (shipLength)) retry = true;
+				shipDirection = Direction.LEFT;
+				break;
+			case 2:
+				if((row + 1) < (shipLength)) retry = true;
+				shipDirection = Direction.UP;
+				break;
+			case 3:
+			default:
+				if((numColumns - (column + 1)) < (shipLength)) retry = true;
+				break;
+			}
+			if (retry) {
+				System.out.println("Retry");
+				i--;
+				retry = false;
+				continue;
+			}
+			shipPlacement.add(new GameCell(row, column));
+			ships.add(new Ship(row, column, shipDirection, shipLength));
+			shipLength++;
+			shipDirection = Direction.RIGHT;
+		}
+		
+		/*
 		ships.add(new Ship(0, 0, Direction.RIGHT, 3));
 		ships.add(new Ship(3, 1, Direction.DOWN, 4));
 		ships.add(new Ship(5, 6, Direction.UP, 5));
 		ships.add(new Ship(4, 4, Direction.LEFT, 2));
+		*/
+		System.out.println(ships.size());
 		setShips();
 	}
 	public boolean handleMove(int row, int column){

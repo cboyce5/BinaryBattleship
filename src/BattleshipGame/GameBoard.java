@@ -118,19 +118,19 @@ public class GameBoard extends JPanel {
 			int column = r.nextInt(numColumns);
 			int direction = r.nextInt(4);
 			singleShip.clear();
-			System.out.println(direction);
+			//System.out.println(direction);
 			switch (direction) {
 			case 0:
 				//if((numRows - (row)) < (shipLength)) retry = true;
 				for(int j = 0; j < shipLength; j++) {
 					if(row + j > 7) retry = true;
 					Point currentPoint = new Point(row + j, column);
-					System.out.println(currentPoint);
+					//System.out.println(currentPoint);
 					if(!shipPlacement.contains(currentPoint)) {
 						singleShip.add(currentPoint);
 					}
 					else {
-						System.out.println("shipPlacement retry");
+						//System.out.println("shipPlacement retry");
 						retry = true;
 					}
 				}
@@ -141,12 +141,12 @@ public class GameBoard extends JPanel {
 				for(int j = 0; j < shipLength; j++) {
 					if(column - j < 0) retry = true;
 					Point currentPoint = new Point(row, column - j);
-					System.out.println(currentPoint);
+					//System.out.println(currentPoint);
 					if(!shipPlacement.contains(currentPoint)) {
 						singleShip.add(currentPoint);
 					}
 					else {
-						System.out.println("shipPlacement retry");
+						//System.out.println("shipPlacement retry");
 						retry = true;
 					}
 				}
@@ -157,12 +157,12 @@ public class GameBoard extends JPanel {
 				for(int j = 0; j < shipLength; j++) {
 					if(row - j < 0) retry = true;
 					Point currentPoint = new Point(row - j, column);
-					System.out.println(currentPoint);
+					//System.out.println(currentPoint);
 					if(!shipPlacement.contains(currentPoint)) {
 						singleShip.add(currentPoint);
 					}
 					else {
-						System.out.println("shipPlacement retry");
+						//System.out.println("shipPlacement retry");
 						retry = true;
 					}
 				}
@@ -174,12 +174,12 @@ public class GameBoard extends JPanel {
 				for(int j = 0; j < shipLength; j++) {
 					if(column + j > 7) retry = true;
 					Point currentPoint = new Point(row, column + j);
-					System.out.println(currentPoint);
+					//System.out.println(currentPoint);
 					if(!shipPlacement.contains(currentPoint)) {
 						singleShip.add(currentPoint);
 					}
 					else {
-						System.out.println("shipPlacement retry");
+						//System.out.println("shipPlacement retry");
 						retry = true;
 					}
 				}
@@ -187,7 +187,7 @@ public class GameBoard extends JPanel {
 				break;
 			}
 			if (retry) {
-				System.out.println("Retry");
+				//System.out.println("Retry");
 				i = iLast;
 				retry = false;
 				continue;
@@ -224,7 +224,7 @@ public class GameBoard extends JPanel {
 		ships.add(new Ship(5, 6, Direction.UP, 5));
 		ships.add(new Ship(4, 4, Direction.LEFT, 2));
 		*/
-		System.out.println(ships.size());
+		//System.out.println(ships.size());
 		setShips();
 	}
 	
@@ -253,7 +253,7 @@ public class GameBoard extends JPanel {
 
 	public void setShips(){
 		for(Ship s : ships){
-			System.out.println(s);
+			//System.out.println(s);
 			if(s.getShipDirection() == Direction.UP){
 				for(int i = 0; i < s.getShipLength(); i++){
 					board[s.getStartRow() - i][s.getStartColumn()].setContainsShip(true);

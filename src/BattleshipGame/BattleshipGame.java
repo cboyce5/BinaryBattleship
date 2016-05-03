@@ -119,6 +119,7 @@ public class BattleshipGame extends JFrame{
 	public static void main(String[] args) {
 		JOptionPane.showMessageDialog(null,"Welcome to BattleShip!\nPlease enter your ship placements in the next screen.");
 		BattleshipGame game = new BattleshipGame();
+		game.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		game.setVisible(true);
 		HumanShipSetUp jd = new HumanShipSetUp(game.humanBoard);
 		jd.setModal(true);

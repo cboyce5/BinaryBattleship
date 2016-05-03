@@ -28,22 +28,22 @@ public class LoadImagesTests {
 	public void loadImages() {
 
 		try {
-			testImage = ImageIO.read(new File("resources/Hit.png"));
+			testImage = ImageIO.read(new File("/resources/Hit.png"));
 			assertTrue(compareImages((BufferedImage) testImage, (BufferedImage) Assets.getHit()));
 
-			testImage = ImageIO.read(new File("resources/Miss.png"));
+			testImage = ImageIO.read(new File("/resources/Miss.png"));
 			assertTrue(compareImages((BufferedImage) testImage, (BufferedImage) Assets.getMiss()));
 
-			testImage = ImageIO.read(new File("resources/PuddleR.png"));
+			testImage = ImageIO.read(new File("/resources/PuddleR.png"));
 			assertTrue(compareImages((BufferedImage) testImage, (BufferedImage) Assets.getPuddle()));
 
-			testImage = ImageIO.read(new File("resources/Ship.png"));
+			testImage = ImageIO.read(new File("/resources/Ship.png"));
 			assertTrue(compareImages((BufferedImage) testImage, (BufferedImage) Assets.getShip()));
 
-			testImage = ImageIO.read(new File("resources/Sunk.png"));
+			testImage = ImageIO.read(new File("/resources/Sunk.png"));
 			assertTrue(compareImages((BufferedImage) testImage, (BufferedImage) Assets.getSunk()));
 
-			testImage = ImageIO.read(new File("resources/Water.png"));
+			testImage = ImageIO.read(new File("/resources/Water.png"));
 			assertTrue(compareImages((BufferedImage) testImage, (BufferedImage) Assets.getWater()));
 		} catch (IOException e) {
 			System.out.println("Error reading images in LoadImagesTests");

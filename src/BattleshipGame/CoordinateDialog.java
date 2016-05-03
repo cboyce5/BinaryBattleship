@@ -16,7 +16,7 @@ public class CoordinateDialog extends JDialog{
 	
 	public CoordinateDialog(GameBoard b) {
 		this.board = b;
-		setTitle("Enter your guess");
+		setTitle("Enter your guess: (for the Computer Board)");
 		setSize(300,300);
 		setLayout(new GridLayout(3,1));
 		setUp();

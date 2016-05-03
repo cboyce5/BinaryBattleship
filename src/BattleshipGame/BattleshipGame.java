@@ -84,6 +84,7 @@ public class BattleshipGame extends JFrame{
 				humanBoard.setTurn(false);
 				if(computerBoard.checkAllSunk()){
 					JOptionPane.showMessageDialog(null,"Congratulations!! You have won the binary battleship!");
+					
 					break;
 				}
 			}
@@ -115,6 +116,7 @@ public class BattleshipGame extends JFrame{
 			}
 		}
 		
+		
 	}
 	
 	public static void main(String[] args) {
@@ -127,7 +129,11 @@ public class BattleshipGame extends JFrame{
 		game.humanBoard.ships = jd.getShips();
 		game.humanBoard.setShips();
 		game.humanBoard.repaint();
+		if (game.humanBoard.ships.isEmpty()) {
+			game.setVisible(false);
+		}
 		game.playGame();
+		game.setVisible(false);
 	}
 	
 }

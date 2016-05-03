@@ -43,5 +43,10 @@ public class Ship {
 	public void setShipLength(int shipLength) {
 		this.shipLength = shipLength;
 	}
+	@Override
+	public String toString() {
+		return "Ship [startRow=" + startRow + ", startColumn=" + startColumn + ", shipDirection=" + shipDirection
+				+ ", shipLength=" + shipLength + "]";
+	}
 	
 }

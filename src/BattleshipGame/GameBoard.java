@@ -123,7 +123,7 @@ public class GameBoard extends JPanel {
 			int column = r.nextInt(numColumns);
 			int direction = r.nextInt(4);
 			singleShip.clear();
-			
+			System.out.println(direction);
 			switch (direction) {
 			case 0:
 				//if((numRows - (row)) < (shipLength)) retry = true;
@@ -188,6 +188,7 @@ public class GameBoard extends JPanel {
 						retry = true;
 					}
 				}
+				shipDirection = Direction.RIGHT;
 				break;
 			}
 			if (retry) {
@@ -257,6 +258,7 @@ public class GameBoard extends JPanel {
 
 	public void setShips(){
 		for(Ship s : ships){
+			System.out.println(s);
 			if(s.getShipDirection() == Direction.UP){
 				for(int i = 0; i < s.getShipLength(); i++){
 					board[s.getStartRow() - i][s.getStartColumn()].setContainsShip(true);

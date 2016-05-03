@@ -25,7 +25,7 @@ public class BattleshipGame extends JFrame{
 		computerBoard = new GameBoard(8,8, false);
 		humanBoard = new GameBoard(8,8, true);
 		setTitle("Binary Battleship");
-		setSize(800,500);
+		setSize(800,430);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridLayout(1,2));
 		add(computerBoard);

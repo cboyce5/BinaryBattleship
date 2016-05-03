@@ -34,7 +34,7 @@ public class LoadImagesTests {
 			testImage = ImageIO.read(new File("resources/Miss.png"));
 			assertTrue(compareImages((BufferedImage) testImage, (BufferedImage) Assets.getMiss()));
 
-			testImage = ImageIO.read(new File("resources/Puddle.png"));
+			testImage = ImageIO.read(new File("resources/PuddleR.png"));
 			assertTrue(compareImages((BufferedImage) testImage, (BufferedImage) Assets.getPuddle()));
 
 			testImage = ImageIO.read(new File("resources/Ship.png"));

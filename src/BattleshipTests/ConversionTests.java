@@ -48,32 +48,32 @@ public class ConversionTests {
 	public void testConvertingToDecimal() {
 
 		// 4-bit
-		assertEquals(0, bs.convertToDecimal("0000"));
-		assertEquals(1, bs.convertToDecimal("0001"));
-		assertEquals(2, bs.convertToDecimal("0010"));
-		assertEquals(3, bs.convertToDecimal("0011"));
-		assertEquals(4, bs.convertToDecimal("0100"));
-		assertEquals(5, bs.convertToDecimal("0101"));
-		assertEquals(6, bs.convertToDecimal("0110"));
-		assertEquals(7, bs.convertToDecimal("0111"));
-		assertEquals(8, bs.convertToDecimal("1000"));
-		assertEquals(9, bs.convertToDecimal("1001"));
-		assertEquals(10, bs.convertToDecimal("1010"));
-		assertEquals(11, bs.convertToDecimal("1011"));
-		assertEquals(12, bs.convertToDecimal("1100"));
-		assertEquals(13, bs.convertToDecimal("1101"));
-		assertEquals(14, bs.convertToDecimal("1110"));
-		assertEquals(15, bs.convertToDecimal("1111"));
+		assertEquals(0, BattleshipGame.convertToDecimal("0000"));
+		assertEquals(1, BattleshipGame.convertToDecimal("0001"));
+		assertEquals(2, BattleshipGame.convertToDecimal("0010"));
+		assertEquals(3, BattleshipGame.convertToDecimal("0011"));
+		assertEquals(4, BattleshipGame.convertToDecimal("0100"));
+		assertEquals(5, BattleshipGame.convertToDecimal("0101"));
+		assertEquals(6, BattleshipGame.convertToDecimal("0110"));
+		assertEquals(7, BattleshipGame.convertToDecimal("0111"));
+		assertEquals(8, BattleshipGame.convertToDecimal("1000"));
+		assertEquals(9, BattleshipGame.convertToDecimal("1001"));
+		assertEquals(10, BattleshipGame.convertToDecimal("1010"));
+		assertEquals(11, BattleshipGame.convertToDecimal("1011"));
+		assertEquals(12, BattleshipGame.convertToDecimal("1100"));
+		assertEquals(13, BattleshipGame.convertToDecimal("1101"));
+		assertEquals(14, BattleshipGame.convertToDecimal("1110"));
+		assertEquals(15, BattleshipGame.convertToDecimal("1111"));
 
 		// 3-bit
-		assertEquals(0, bs.convertToDecimal("000"));
-		assertEquals(1, bs.convertToDecimal("001"));
-		assertEquals(2, bs.convertToDecimal("010"));
-		assertEquals(3, bs.convertToDecimal("011"));
-		assertEquals(4, bs.convertToDecimal("100"));
-		assertEquals(5, bs.convertToDecimal("101"));
-		assertEquals(6, bs.convertToDecimal("110"));
-		assertEquals(7, bs.convertToDecimal("111"));
+		assertEquals(0, BattleshipGame.convertToDecimal("000"));
+		assertEquals(1, BattleshipGame.convertToDecimal("001"));
+		assertEquals(2, BattleshipGame.convertToDecimal("010"));
+		assertEquals(3, BattleshipGame.convertToDecimal("011"));
+		assertEquals(4, BattleshipGame.convertToDecimal("100"));
+		assertEquals(5, BattleshipGame.convertToDecimal("101"));
+		assertEquals(6, BattleshipGame.convertToDecimal("110"));
+		assertEquals(7, BattleshipGame.convertToDecimal("111"));
 	}
 
 }

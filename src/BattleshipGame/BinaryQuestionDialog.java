@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class BinaryQuestionDialog extends JDialog {
 	private GameBoard gb;
 	private String q1 = "Convert the following binary number to its base ten decimal counterpart, 101: ";

@@ -4,12 +4,9 @@ import java.awt.GridLayout;
 import java.util.Random;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-//TODO : REMOVE SHIPS
-//		 MAYBE DRAW THE SHIP IF SUNK
-//		 MAYBE MAKE THE JDIALOG A PANEL THAT WE COULD ADD TO BOARD
 
+@SuppressWarnings("serial")
 public class BattleshipGame extends JFrame{
 	public GameBoard computerBoard;
 	public GameBoard humanBoard;

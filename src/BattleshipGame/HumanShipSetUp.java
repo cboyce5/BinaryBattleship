@@ -16,11 +16,13 @@ import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
+@SuppressWarnings("serial")
 public class HumanShipSetUp extends JDialog{
 	private ArrayList<Ship> ships;
 	
 	private JButton submitButton;
 	private JButton presetButton;
+	@SuppressWarnings("unused")
 	private GameBoard gb;
 	
 	public HumanShipSetUp(GameBoard gb) {

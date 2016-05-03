@@ -4,16 +4,12 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class GameBoard extends JPanel {
 	boolean isHuman;
 	private int numRows, numColumns;
@@ -23,7 +19,6 @@ public class GameBoard extends JPanel {
 	private static final int BACKGROUND_ROWS = 4;
 	private static final int BACKGROUND_COLUMNS = 4;
 	public ArrayList<Ship> ships;
-	private JLabel label;
 	private boolean turn = false;
 	private int lastRow;
 	private int lastCol;
